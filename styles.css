@@ -1,0 +1,30 @@
+.cx-dropdown {
+    position: relative;
+}
+.cx-dropdown__content {
+    display: none;
+    position: absolute;
+    width: auto;
+    overflow: hidden;
+    border: 1px solid rgb(226, 226, 226);
+    background-color: white;
+    border-radius: 2px;
+}
+.cx-dropdown__header {
+    display: block;
+    padding: 5px;
+    background-color: #f1f2f3;
+    color: black;
+}
+.cx-dropdown__items-container {
+    background-color: white;
+    overflow-y: auto;
+}
+.cx-dropdown__item {
+    padding: 5px;
+    display: block;
+}
+.cx-dropdown__item:hover {
+    background-color: lightgray;
+}
+
