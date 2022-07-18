@@ -9,8 +9,8 @@
     <h1>All Components</h1>
 
     <h2>Dropdown</h2>
+    <p>NOTE: Try resizing the browser window to see how the dropdown content adjusts itself</p>
     <div class="cx-dropdown" data-cx-dropdown-position="left top" data-cx-max-content-height="300">
-        <p>NOTE: Try resizing the browser window to see how the dropdown content adjusts itself</p>
         <button class="cx-dropdown__toggle">Toggle Dropdown</button>
         <div class="cx-dropdown__content">
             <div class="cx-dropdown__header">Notifications</div>
@@ -25,25 +25,36 @@
     </div>
 
     <div id="search-component-container">
-        <h2>A search component</h2>
+        <h2>A filterable list</h2>
     </div>
 
     <style>
+        .searchlist {
+            border-radius: 5px;
+            display: inline-block;
+        }
         .searchlist-bar {
             background-color: #222;
             color: #efefef;
             border: 1px solid grey;
+            padding: 5px 10px;
             border-radius: 5px;
         }
+        .searchlist-bar:focus {
+            outline: none;
+        }
         .searchlist-items-container {
-            background-color: #dfdfdf;
+            background-color: #e1e1e1;
             display: block;
-            width: fit-content;
-            padding: 10px;
             list-style-type: none;
+            margin: 0;
+            padding: 0;
         }
         .searchlist-item {
-            margin-bottom: 5px;
+            padding: 10px;
+        }
+        .searchlist-item:hover {
+            background-color: #cfcfcf;
         }
     </style>
 
@@ -56,11 +67,12 @@
             }
 
             const items = [
-                {text: 'Lorem ipsum'},
-                {text: 'dolor sit'}
+                {text: '1. Lorem ipsum'},
+                {text: '2. dolor sit'}
             ];
 
             Object.assign(SearchableList.classNames, {
+                component: 'searchlist',
                 searchBar: 'searchlist-bar',
                 listItem: 'searchlist-item',
                 listItemsContainer: 'searchlist-items-container',

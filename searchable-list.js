@@ -124,7 +124,7 @@ const SearchableList = (() => {
 
     const getComponentTemplate = () => {
         let $component = document.createElement('div');
-        $component.className = selector_prefix;
+        $component.className = selector_prefix  + ' ' + constructor.classNames.component;
 
         let classNames = constructor.classNames;
         $component.innerHTML = `
@@ -154,6 +154,10 @@ const SearchableList = (() => {
      * the component inorder to apply styles to them.
      */
     constructor.classNames = () => ({
+        /**
+         * Class name for the compooent itself
+         */
+        component: '',
         searchBar: '',
         listItemsContainer: '',
         listItem: '',
