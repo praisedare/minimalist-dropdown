@@ -6,19 +6,74 @@
     <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
+    <h1>All Components</h1>
+
+    <h2>Dropdown</h2>
     <div class="cx-dropdown" data-cx-dropdown-position="left top" data-cx-max-content-height="300">
-        <div class="cx-dropdown__toggle">emoji</div>
+        <p>NOTE: Try resizing the browser window to see how the dropdown content adjusts itself</p>
+        <button class="cx-dropdown__toggle">Toggle Dropdown</button>
         <div class="cx-dropdown__content">
             <div class="cx-dropdown__header">Notifications</div>
             <div class="cx-dropdown__items-container">
-                <div class="cx-dropdown__item">1 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium aliquam ex neque a aut similique sequi tempore magni quam reiciendis magnam illum consectetur molestias dicta, quis earum maxime? Rem, reiciendis.</div>
-                <div class="cx-dropdown__item">2</div>
-                <div class="cx-dropdown__item">3</div>
-                <div class="cx-dropdown__item">4</div>
-                <div class="cx-dropdown__item">5</div>
+                <div class="cx-dropdown__item">Lorem ipsum dolor sit amet</div>
+                <div class="cx-dropdown__item">consectetur adipisicing elit. reprehenderit architecto at. Laborum</div>
+                <div class="cx-dropdown__item">Nisi voluptatum assumenda ipsum harum</div>
+                <div class="cx-dropdown__item">tempora ratione ducimus veritatis</div>
+                <div class="cx-dropdown__item">sapiente pariatur ab provident aliquam</div>
             </div>
         </div>
     </div>
+
+    <div id="search-component-container">
+        <h2>A search component</h2>
+    </div>
+
+    <style>
+        .searchlist-bar {
+            background-color: #222;
+            color: #efefef;
+            border: 1px solid grey;
+            border-radius: 5px;
+        }
+        .searchlist-items-container {
+            background-color: #dfdfdf;
+            display: block;
+            width: fit-content;
+            padding: 10px;
+            list-style-type: none;
+        }
+        .searchlist-item {
+            margin-bottom: 5px;
+        }
+    </style>
+
+    <script>
+        window.addEventListener('load', () => {
+            function renderFunction(listItem) {
+                let $el = document.createElement('span');
+                $el.innerHTML = listItem.text;
+                return $el;
+            }
+
+            const items = [
+                {text: 'Lorem ipsum'},
+                {text: 'dolor sit'}
+            ];
+
+            Object.assign(SearchableList.classNames, {
+                searchBar: 'searchlist-bar',
+                listItem: 'searchlist-item',
+                listItemsContainer: 'searchlist-items-container',
+                noMatchMsg: 'searchlist-items-no-match',
+            });
+
+            const $searchList = new SearchableList(renderFunction, items);
+            $searchList.title = 'Search...';
+
+            document.querySelector('#search-component-container').append($searchList);
+        });
+    </script>
     <script src="./script.js"></script>
+    <script src="./searchable-list.js"></script>
 </body>
 </html>
